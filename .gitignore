@@ -1,0 +1,8 @@
+# vim Backup files
+*.swp
+
+# Erlang binaries
+*.beam
+
+# Tag files
+tags
