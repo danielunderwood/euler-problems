@@ -7,6 +7,8 @@
 %% Solves the given Euler Problem with supplied Args
 solve_problem(1, {Max, Factors}) ->
 	sum_multiples(Max, Factors);
+solve_problem(2, Max) ->
+	fibonacci_even_sum(Max);
 solve_problem(_, _Args) ->
 	io:format("Unable to solve problem. Check to make sure problem"
 		  " solution is implemented.~n").
@@ -48,3 +50,14 @@ list_has_factor(_, List) when not is_list(List) ->
 	error;
 list_has_factor(_, _) ->
 	false.
+
+%% Gets the Nth Fibonacci number
+fibonacci(N) when is_integer(N), N > 1 ->
+	fibonacci(N-1) + fibonacci(N-2);
+fibonacci(N) when is_integer(N), (N =:= 1 orelse N =:= 2) ->
+	1;
+fibonacci(N) when is_integer(N), N =:= 0 ->
+	0;
+fibonacci(_) ->
+	io:format("Error with argument calling fibonacci. Check argument.~n"),
+	error.
